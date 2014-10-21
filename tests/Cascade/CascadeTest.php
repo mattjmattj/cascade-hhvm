@@ -18,7 +18,7 @@ class MultiplyFilter {
 	/**
 	 *
 	 */
-	public function filter($value, $factor) {
+	public function __invoke($value, $factor) {
 		return $value * $factor;
 	}
 }
@@ -60,18 +60,6 @@ class CascadeTest extends TestCase {
 
 		$this->assertEquals($this->Cascade, $this->Cascade->addFilter($filter));
 		$this->assertEquals($filters, $this->Cascade->filters());
-	}
-
-
-
-	/**
-	 *
-	 */
-	public function testMethod() {
-		$method = 'method';
-
-		$this->assertEquals($this->Cascade, $this->Cascade->setMethod($method));
-		$this->assertEquals($method, $this->Cascade->method());
 	}
 
 

@@ -20,16 +20,7 @@ class Cascade {
 	 *
 	 *	@var array
 	 */
-	protected $_filters = '';
-
-
-
-	/**
-	 *	Filtering method to call on filter objects.
-	 *
-	 *	@var string
-	 */
-	protected $_method = '';
+	protected $_filters = [];
 
 
 
@@ -39,9 +30,8 @@ class Cascade {
 	 *	@param array $filters Filters.
 	 *	@param string $method Filtering method.
 	 */
-	public function __construct(array $filters = [], $method = 'filter') {
+	public function __construct(array $filters = []) {
 		$this->_filters = $filters;
-		$this->_method = $method;
 	}
 
 
@@ -73,35 +63,11 @@ class Cascade {
 	/**
 	 *	Adds a filter.
 	 *
-	 *	@param callable|object $filter Filter.
+	 *	@param callable $filter Filter.
 	 *	@return Cascade Instance.
 	 */
-	public function addFilter($filter) {
+	public function addFilter(callable $filter) {
 		$this->_filters[] = $filter;
-		return $this;
-	}
-
-
-
-	/**
-	 *	Returns filtering method.
-	 *
-	 *	@return string Method.
-	 */
-	public function method() {
-		return $this->_method;
-	}
-
-
-
-	/**
-	 *	Sets filtering method.
-	 *
-	 *	@param string $method Method.
-	 *	@return Cascade Instance.
-	 */
-	public function setMethod($method) {
-		$this->_method = $method;
 		return $this;
 	}
 
@@ -126,14 +92,6 @@ class Cascade {
 		$value = &$arguments[0];
 
 		foreach ($this->_filters as $filter) {
-			if (!is_callable($filter)) {
-				$filter = [$filter, $this->_method];
-
-				if (!is_callable($filter)) {
-					continue;
-				}
-			}
-
 			$value = call_user_func_array($filter, $arguments);
 		}
 
