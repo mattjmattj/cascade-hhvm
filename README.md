@@ -25,11 +25,7 @@ $Cascade = new Cascade\Cascade([
 	}
 ]);
 
-echo $Cascade->filter(2);
-```
-
-```
-int(16)
+echo $Cascade->filter(2); // 16
 ```
 
 Filtering a value depending on additionnal arguments:
@@ -41,11 +37,7 @@ $Cascade = new Cascade\Cascade([
 	}
 ]);
 
-echo $Cascade->filter(2, 10);
-```
-
-```
-int(20)
+echo $Cascade->filter(2, 10); // 20
 ```
 
 Filtering a value with a filter object:
@@ -61,11 +53,7 @@ $Cascade = new Cascade\Cascade([
 	new SquareFilter()
 ]);
 
-echo $Cascade->filter(2);
-```
-
-```
-int(4)
+echo $Cascade->filter(2); // 4
 ```
 
 API
