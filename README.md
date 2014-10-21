@@ -44,7 +44,7 @@ Filtering a value with a filter object:
 
 ```php
 class SquareFilter {
-	public function filter($value) {
+	public function __invoke($value) {
 		return $value * $value;
 	}
 }
@@ -61,17 +61,13 @@ API
 
 ```php
 // constructor
-$Cascade = new Cascade\Cascade($filters, $method);
+$Cascade = new Cascade\Cascade();
+$Cascade = new Cascade\Cascade($filters);
 
 // accessors for the list of filters
 $Cascade->filters();
 $Cascade->setFilters($filters);
 $Cascade->addFilter($filter);
-
-// accessors for the filtering method, i.e. the method that will be called on
-// filter objects.
-$Cascade->method();
-$Cascade->setMethod($method);
 
 // filter
 $Cascade->filter($value [, $args...]);
