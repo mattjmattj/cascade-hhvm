@@ -1,4 +1,4 @@
-cascade-hack
+cascade-hhvm
 =======
 
 [![Build Status](https://travis-ci.org/mattjmattj/cascade-hhvm.svg)](https://travis-ci.org/mattjmattj/cascade-hhvm)
