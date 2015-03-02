@@ -15,7 +15,7 @@
 >
 	<testsuites>
 		<testsuite name="Cascade test suite">
-			<directory>tests</directory>
+			<directory suffix="Test.hh">tests</directory>
 		</testsuite>
 	</testsuites>
 </phpunit>
