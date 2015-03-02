@@ -1,9 +1,11 @@
-<?php
+<?hh //partial
 
 /**
- *	@author Félix Girault <felix.girault@gmail.com>
+ *	HHVM port of Félix Girault's Cascade (https://github.com/felixgirault/cascade)
+ *	@author Matthias Jouan <matthias.jouan@gmail.com>
  *	@license FreeBSD License (http://opensource.org/licenses/BSD-2-Clause)
  */
+ 
 namespace Cascade;
 
 use PHPUnit_Framework_TestCase as TestCase;
@@ -41,7 +43,7 @@ class CascadeTest extends TestCase {
 	 *
 	 */
 	public function setUp() {
-		$this->Cascade = new Cascade;
+		$this->Cascade = new Cascade();
 	}
 
 
@@ -51,7 +53,7 @@ class CascadeTest extends TestCase {
 	 */
 	public function testFilters() {
 		$filter = function() {};
-		$filters = [$filter];
+		$filters = Vector {$filter};
 
 		$this->assertEquals($this->Cascade, $this->Cascade->setFilters($filters));
 		$this->assertEquals($filters, $this->Cascade->filters());
