@@ -12,6 +12,9 @@
 	"require": {
 		"hhvm": ">=3.5.0"
 	},
+	"require-dev": {
+		"phpunit/phpunit": "~4.5"
+	},
 	"autoload": {
 		"psr-4": {
 			"Cascade\\": "lib/Cascade"
